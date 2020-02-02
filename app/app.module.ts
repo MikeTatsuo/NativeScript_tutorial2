@@ -1,15 +1,18 @@
-import { NgModule } from "@angular/core";
+import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
-import { NativeScriptUIChartModule } from "nativescript-ui-chart/angular";
+import { NativeScriptFormsModule } from "nativescript-angular/forms";
+import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 
 import { AppComponent } from "./app.component";
 
 @NgModule({
   imports: [
     NativeScriptModule,
-    NativeScriptUIChartModule
+    NativeScriptFormsModule,
+    NativeScriptHttpClientModule
   ],
   declarations: [AppComponent],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule {}
