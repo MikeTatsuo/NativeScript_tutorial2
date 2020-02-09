@@ -1,0 +1,21 @@
+.add-bar {
+  background-color: #cb1d00;
+  padding: 5;
+}
+
+.add-bar Image {
+  height: 25;
+  vertical-align: center;
+  margin-left: 10;
+  margin-right: 10;
+}
+
+.add-bar TextField {
+  padding: 10;
+}
+
+Label {
+  background-color: white;
+  border-bottom-width: 1;
+  border-bottom-color: gray;
+}
