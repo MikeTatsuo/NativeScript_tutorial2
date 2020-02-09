@@ -17,11 +17,29 @@
       col="1"></Image>
   </GridLayout>
 
-  <RadListView row="1" [items]="groceryList">
+  <RadListView
+    row="1"
+    [items]="groceryList"
+    swipeActions="true"
+    (itemSwipeProgressStarted)="onSwipeCellStarted($event)">
+
     <ng-template let-item="item">
       <Label
         [text]="item.name"
         class="p-15"></Label>
     </ng-template>
+
+    <GridLayout
+      *tkListItemSwipeTemplate
+      columns="*, auto">
+      <StackLayout
+        id="delete-view"
+        col="1"
+        (tap)="delete($event)"
+        class="delete-view">
+        <Image src="~/images/delete.png"></Image>
+      </StackLayout>
+    </GridLayout>
+    
   </RadListView>
 </GridLayout>

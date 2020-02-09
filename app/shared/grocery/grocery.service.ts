@@ -43,15 +43,24 @@ export class GroceryService {
     return throwError(error);
   }
 
-  add(name: string){
+  add(name: string) {
     return this.http.post(
       this.baseUrl,
-      JSON.stringify({Name: name}),
-      {headers: this.getCommonHeaders()}
+      JSON.stringify({ Name: name }),
+      { headers: this.getCommonHeaders() }
     ).pipe(
       map(data => {
         return new Grocery((<any>data)._id, name);
       }),
+      catchError(this.handleErrors)
+    );
+  }
+
+  delete(id: string) {
+    return this.http.delete(
+      this.baseUrl + '/' + id,
+      { headers: this.getCommonHeaders() }
+    ).pipe(
       catchError(this.handleErrors)
     );
   }
