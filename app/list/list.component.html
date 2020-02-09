@@ -20,6 +20,7 @@
   <RadListView
     row="1"
     [items]="groceryList"
+    [class.visible]="listLoaded"
     swipeActions="true"
     (itemSwipeProgressStarted)="onSwipeCellStarted($event)">
 
@@ -49,5 +50,5 @@
     row="1"
     horizontalAligment="center"
     verticalAlignment="center"></ActivityIndicator>
-    
+
 </GridLayout>
