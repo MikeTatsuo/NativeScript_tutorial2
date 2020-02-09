@@ -16,17 +16,20 @@ import { View } from "tns-core-modules/ui/core/view";
 export class ListComponent implements OnInit {
   groceryList: Array<Grocery> = [];
   grocery = '';
+  isLoading = false;
 
   @ViewChild('groceryTextField', { static: false }) groceryTextField: ElementRef;
 
   constructor(private groceryService: GroceryService) { }
 
   ngOnInit() {
+    this.isLoading = true;
     this.groceryService.load()
       .subscribe((loadedGroceries: []) => {
         loadedGroceries.forEach((groceryObject: Grocery) => {
           this.groceryList.unshift(groceryObject);
         });
+        this.isLoading = false;
       });
   }
 

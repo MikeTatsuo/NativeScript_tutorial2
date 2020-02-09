@@ -40,6 +40,14 @@
         <Image src="~/images/delete.png"></Image>
       </StackLayout>
     </GridLayout>
-    
+
   </RadListView>
+
+  <ActivityIndicator
+    [busy]="isLoading"
+    [visibility]="isLoading ? 'visible' : 'collapse'"
+    row="1"
+    horizontalAligment="center"
+    verticalAlignment="center"></ActivityIndicator>
+    
 </GridLayout>

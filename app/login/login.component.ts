@@ -16,9 +16,10 @@ import { UserService } from "../shared/user/user.service";
 export class LoginComponent implements OnInit {
   user: User;
   isLoggingIn = true;
+  isLoading = false;
 
   constructor(
-    private page:Page,
+    private page: Page,
     private router: Router,
     private userService: UserService) {
     this.user = new User();
@@ -27,7 +28,7 @@ export class LoginComponent implements OnInit {
     this.user.password = 'N471v35cr1p7';
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.page.actionBarHidden = true;
   }
 
@@ -40,8 +41,11 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+
+    this.isLoading = true;
     this.userService.login(this.user)
       .subscribe(() => {
+        this.isLoading = false;
         this.router.navigate(['/list']),
           (exception) => {
             if (exception.error && exception.error.description) {
@@ -49,13 +53,15 @@ export class LoginComponent implements OnInit {
             } else {
               alert(exception);
             }
-          }
+          };
       });
   }
 
   signup() {
+    this.isLoading = true;
     this.userService.register(this.user)
       .subscribe(() => {
+        this.isLoading = false;
         alert("Your account was successfully created.");
         this.toogleDisplay();
       }, (exception) => {
