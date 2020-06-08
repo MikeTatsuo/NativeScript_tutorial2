@@ -57,7 +57,7 @@
         "zone.js": "0.10.2"
     },
     "devDependencies": {
-        "@angular/compiler-cli": "8.2.14",
+        "@angular/compiler-cli": "^9.1.9",
         "@ngtools/webpack": "^8.3.24",
         "nativescript-dev-webpack": "^1.4.0",
         "tns-platform-declarations": "6.3.1",
